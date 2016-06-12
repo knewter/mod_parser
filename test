@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+
+pushd tests && elm-make Tests.elm --output tests.js && node tests.js && popd
