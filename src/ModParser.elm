@@ -45,18 +45,14 @@ parseSongname ( data, modfile ) =
 
 readStringChar : KeyCode -> String
 readStringChar keyCode =
-    -- If we read a null byte, turn it into a space character so that we can treat
-    -- it like a normal string.  I have no idea if this is a Good Idea for a mod
-    -- parser, but it makes the test read like I want.  If we don't like it going
-    -- forward, it will be easy enough to tweak the test so not spending thought
-    -- cycles on it for now.
+    -- If we read a null byte, turn it into an empty string.
     let
         char =
             Char.fromCode keyCode
     in
         case char of
             '\x00' ->
-                " "
+                ""
 
             _ ->
                 String.fromChar (char)

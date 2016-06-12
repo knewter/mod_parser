@@ -10,11 +10,9 @@ tests : List Test
 tests =
     let
         parsed_mod =
-            ZeldaMod.data
-                |> ModParser.parse
+            ZeldaMod.data |> ModParser.parse
     in
-        [ "Zelda 1             " `equals` parsed_mod.songname
-          -- ^^^ 20 characters exactly for each songname
+        [ "Zelda 1" `equals` parsed_mod.songname
         ]
 
 
